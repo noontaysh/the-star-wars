@@ -19,8 +19,9 @@ export const charactersSlice = createSlice({
     extraReducers(builder) {
         builder
             .addCase(fetchCharacters.fulfilled, (state, action) => {
+                console.log(action)
                 state.status = 'succeeded'
-                state.characters.push(action.payload)
+                state.characters = state.characters.concat(action.payload.results)
             })
             .addCase(fetchCharacters.pending, (state, action) => {
                 state.status = 'loading'
@@ -37,6 +38,7 @@ export const charactersSlice = createSlice({
 export const fetchCharacters = createAsyncThunk('characters/fetchCharacters', async () => {
     try {
         const response = await charactersAPI.getCharacters()
+        console.log(response)
         return response.data
     } catch (e) {
         return e.message
