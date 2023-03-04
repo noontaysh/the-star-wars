@@ -1,6 +1,5 @@
 import './App.scss';
-import {fetchCharacters} from "./features/characters/charactersSlice";
-import {useDispatch} from "react-redux";
+import './common/Container.scss'
 import Characters from "./features/characters/Characters";
 
 function App() {
