@@ -6,9 +6,9 @@ const instance = axios.create({
 })
 
 export const charactersAPI = {
-    getCharacters() {
+    getCharacters(page = 1) {
         return instance
-            .get(`people/`) // If status code 200, we will get characters
+            .get(`people/?page=${page}`) // If status code 200, we will get characters
             .then(response => response)
     }
 }
