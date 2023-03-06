@@ -45,13 +45,14 @@ const Characters = () => {
     };
 
     return (
-        <>
+        <div className={'container characters'}>
+            <h1 className={'characters__title'}>Characters</h1>
             <Paginator currentPage={page} paginate={paginate}/>
-            <div className={'characters container'}>
+            <div className={'characters__content'}>
                 {content}
             </div>
-        </>
+        </div>
     );
 };
 
-export default Characters;
+export default React.memo(Characters);

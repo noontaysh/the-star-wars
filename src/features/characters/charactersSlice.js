@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {charactersAPI} from "../../api/Api";
+import {useDispatch} from "react-redux";
 
 // From SWAPI we will get all the characters that will be placed in the characters array
 // As well as we have status for handling the status of operation, values for that: 'idle', 'loading', 'succeeded', 'failed'
