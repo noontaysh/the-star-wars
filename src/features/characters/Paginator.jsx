@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 import {selectAllCharacters} from "./charactersSlice";
 import './Paginator.scss'
@@ -16,27 +16,46 @@ const Paginator = ({currentPage, paginate}) => {
         pageNumbers.push(i)
     }
 
-    // Logic of PREV & NEXT buttons
-    let [portionNumber, setPortionNumber] = useState(1)
-    let portionCount = Math.ceil(pagesCount / 3)
-    let leftPortionPageNum = (portionNumber - 1) * 3 + 1
-    let rightPortionPageNum = portionNumber * 3
+    const [portionNumber, setPortionNumber] = useState(1)
+    const [leftPortionPageNum, setLeftPortionPageNum] = useState(1)
+    const [rightPortionPageNum, setRightPortionPageNum] = useState(3)
+    const portionCount = Math.ceil(pagesCount / 3)
+    // const leftPortionPageNum = (portionNumber - 1) * 3 + 1
+    // const rightPortionPageNum = portionNumber * 3
 
+    useEffect(() => {
+        setLeftPortionPageNum((portionNumber - 1) * 3 + 1)
+        setRightPortionPageNum(portionNumber * 3)
+    }, [portionNumber])
+
+    const showNextNumber = (number) => {
+        if(number === rightPortionPageNum) {
+            setLeftPortionPageNum(leftPortionPageNum + 1)
+            setRightPortionPageNum(rightPortionPageNum + 1)
+            paginate(number)
+        } else if (number === leftPortionPageNum) {
+            setLeftPortionPageNum(leftPortionPageNum - 1)
+            setRightPortionPageNum(rightPortionPageNum - 1)
+            paginate(number)
+        } else {
+            paginate(number)
+        }
+    }
 
     // debugger
     return (
         <div className={'paginator'}>
             <div className={'paginator__content'}>
                 <ul className={'paginator__list'}>
-                    {portionNumber > 1 ? <button onClick={() => setPortionNumber(portionNumber - 1)}>
+                    {leftPortionPageNum > 1 ? <button onClick={() => setPortionNumber(portionNumber - 1)}>
                         <i className="arrow left"></i>
                     </button> : ''}
                     {pageNumbers.filter(p => p >= leftPortionPageNum && p <= rightPortionPageNum).map(number => (
-                            <li className={currentPage === number ? 'active' : 'paginator__number'} key={number} onClick={() => paginate(number)}>
+                            <li className={currentPage === number ? 'active' : 'paginator__number'} key={number} onClick={() => showNextNumber(number)}>
                             {number}
                         </li>
                     ))}
-                    {portionCount > portionNumber ? <button onClick={() => setPortionNumber(portionNumber + 1)}>
+                    {pagesCount > rightPortionPageNum ? <button onClick={() => setPortionNumber(portionNumber + 1)}>
                         <i className="arrow right"></i>
                     </button> : ''}
                 </ul>
@@ -45,4 +64,4 @@ const Paginator = ({currentPage, paginate}) => {
     );
 };
 
-export default Paginator;
+export default React.memo(Paginator);
