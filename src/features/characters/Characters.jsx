@@ -14,16 +14,23 @@ import {getId} from "../../utilities/getImageById";
 import Paginator from "./Paginator";
 
 const Characters = () => {
-    const characters = useSelector(selectAllCharacters)
-    // selectAllCharacters is the selector we made earlier in characterSlice
-    const status = useSelector(getCharactersStatus)
-    const error = useSelector(getCharactersError)
-    const page = useSelector(state => state.characters.currentPage)
     const dispatch = useDispatch()
 
+    // selectAllCharacters is the selector we made earlier in characterSlice
+    const characters = useSelector(selectAllCharacters)
+    const status = useSelector(getCharactersStatus)
+    const error = useSelector(getCharactersError)
+
+    const totalCount = useSelector(state => state.characters.totalCount)
+    const currentPage = useSelector(state => state.characters.currentPage)
+
     useEffect(() => {
-        dispatch(fetchCharacters(page))
-    }, [page])
+        status === 'idle' && dispatch(fetchCharacters(currentPage))
+    }, [currentPage, status])
+
+    const paginate = (pageNumber) => {
+        dispatch(pageChanged(pageNumber))
+    };
 
     let content;
     if (status === 'loading') {
@@ -40,14 +47,10 @@ const Characters = () => {
         content = <p>{error}</p>; // Here we explicitly catch the error, if there is one, then put it in the content that we display below
     }
 
-    const paginate = (pageNumber) => {
-        dispatch(pageChanged(pageNumber))
-    };
-
     return (
         <div className={'container characters'}>
             <h1 className={'characters__title'}>Characters</h1>
-            <Paginator currentPage={page} paginate={paginate}/>
+            <Paginator currentPage={currentPage} paginate={paginate} totalCount={totalCount}/>
             <div className={'characters__content'}>
                 {content}
             </div>

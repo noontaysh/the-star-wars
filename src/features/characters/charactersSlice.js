@@ -20,6 +20,7 @@ export const charactersSlice = createSlice({
     reducers: {
         pageChanged(state, action) {
             state.currentPage = action.payload
+            state.status = 'idle'
         }
     },
     extraReducers(builder) {
