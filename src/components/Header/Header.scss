@@ -1,0 +1,36 @@
+header {
+  height: 10vh;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  p {
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+
+    width: 150px;
+    margin: 0 2rem 0 2rem;
+  }
+}
+
+.active {
+  text-decoration: underline;
+
+  transition: all .3s linear;
+}
+
+
+
