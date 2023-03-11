@@ -8,10 +8,11 @@ import {
     selectAllCharacters
 } from "./charactersSlice";
 import Character from "./Character";
-import './Characters.scss'
+import './styles/Characters.scss'
 import '../../common/Container.scss'
 import {getId} from "../../utilities/getImageById";
 import Paginator from "./Paginator";
+import {loadCharacter} from "./characterProfile/characterSlice";
 
 const Characters = () => {
     const dispatch = useDispatch()

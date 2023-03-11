@@ -47,6 +47,7 @@ export const charactersSlice = createSlice({
 export const fetchCharacters = createAsyncThunk('characters/fetchCharacters', async (currentPage) => {
     try {
         const response = await charactersAPI.getCharacters(currentPage)
+        // console.log(response)
         return response.data
     } catch (e) {
         return e.message
@@ -58,5 +59,5 @@ export const selectAllCharacters = (state) => state.characters.characters
 export const getCharactersStatus = (state) => state.characters.status
 export const getCharactersError = (state) => state.characters.error
 
-export const {pageChanged, statusChanged} = charactersSlice.actions
+export const {pageChanged} = charactersSlice.actions
 export default charactersSlice.reducer

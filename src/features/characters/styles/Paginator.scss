@@ -36,16 +36,40 @@
   transition: all .2s linear;
 }
 
-button {
-  border: none;
-  width: 50px;
-  border-radius: 10px;
-  cursor: pointer;
+.paginator__list {
 
-  transition: all .2s linear;
+  button {
+    border: none;
+    width: 50px;
+    border-radius: 10px;
+    cursor: pointer;
 
-  &:hover {
-    opacity: 0.5;
+    transition: all .2s linear;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  button:first-child {
+    margin-right: .6rem;
+    transition: all .2s linear;
+
+    &:hover {
+      .left {
+        transform: rotate(-225deg);
+      }
+    }
+  }
+
+  button:last-child {
+    margin-left: .6rem;
+
+    &:hover {
+      .right {
+        transform: rotate(315deg);
+      }
+    }
   }
 }
 
@@ -56,17 +80,6 @@ button {
   padding: 3px;
 }
 
-button:first-child {
-  margin-right: .6rem;
-  transition: all .2s linear;
-
-  &:hover {
-    .left {
-      transform: rotate(-225deg);
-    }
-  }
-}
-
 .left {
   transform: rotate(135deg);
   transition: all .2s linear;
@@ -74,16 +87,6 @@ button:first-child {
   position: absolute;
   top: 20px;
   left: 22px;
-}
-
-button:last-child {
-  margin-left: .6rem;
-
-  &:hover {
-    .right {
-      transform: rotate(315deg);
-    }
-  }
 }
 
 .right {

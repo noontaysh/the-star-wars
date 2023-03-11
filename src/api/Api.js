@@ -10,5 +10,9 @@ export const charactersAPI = {
         return instance
             .get(`people/?page=${page}`) // If status code 200, we will get characters
             .then(response => response)
+    },
+    getCharacterById(id) {
+        return instance
+            .get(`people/${id}`)
     }
 }

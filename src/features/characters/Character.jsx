@@ -1,5 +1,5 @@
 import React from 'react';
-import './Character.scss'
+import './styles/Character.scss'
 
 const Character = ({characterCard, id}) => {
     return (
