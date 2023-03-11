@@ -26,8 +26,8 @@ const Characters = () => {
     const currentPage = useSelector(state => state.characters.currentPage)
 
     useEffect(() => {
-        status === 'idle' && dispatch(fetchCharacters(currentPage))
-    }, [currentPage, status])
+        dispatch(fetchCharacters(currentPage))
+    }, [currentPage])
 
     const paginate = (pageNumber) => {
         dispatch(pageChanged(pageNumber))

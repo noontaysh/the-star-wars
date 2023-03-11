@@ -14,5 +14,6 @@ export const charactersAPI = {
     getCharacterById(id) {
         return instance
             .get(`people/${id}`)
+            .then(response => response)
     }
 }

@@ -20,7 +20,6 @@ export const charactersSlice = createSlice({
     reducers: {
         pageChanged(state, action) {
             state.currentPage = action.payload
-            state.status = 'idle'
         }
     },
     extraReducers(builder) {
@@ -30,7 +29,6 @@ export const charactersSlice = createSlice({
                 state.characters = action.payload.results
                 state.totalCount = action.payload.count
                 state.pageSize = action.payload.results.length
-                // console.log(action.payload.count)
             })
             .addCase(fetchCharacters.pending, (state, action) => {
                 state.status = 'loading'
