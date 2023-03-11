@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getCharacterError, getCharacterStatus, loadCharacter, selectCharacter} from "./characterSlice";
 import CharacterExcerpt from "./CharacterExcerpt";
+import '../../../common/Container.scss'
 
 const CharacterProfile = () => {
     const {characterId} = useParams()
@@ -27,9 +28,9 @@ const CharacterProfile = () => {
     }
 
     return (
-        <>
+        <div className={'container'}>
             {content}
-        </>
+        </div>
     );
 };
 

@@ -8,6 +8,7 @@
 
   text-decoration: none;
   color: black;
+  font-family: 'Poppins', sans-serif;
 
   img {
     vertical-align: middle;
@@ -35,4 +36,5 @@
 .character__paragraphs {
   display: flex;
   justify-content: space-between;
+  font-weight: 300;
 }
