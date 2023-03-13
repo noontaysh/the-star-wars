@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {
     fetchCharacters,
@@ -12,7 +12,6 @@ import './styles/Characters.scss'
 import '../../common/Container.scss'
 import {getId} from "../../utilities/getImageById";
 import Paginator from "./Paginator";
-import {loadCharacter} from "./characterProfile/characterSlice";
 
 const Characters = () => {
     const dispatch = useDispatch()
@@ -26,7 +25,10 @@ const Characters = () => {
     const currentPage = useSelector(state => state.characters.currentPage)
 
     useEffect(() => {
-        dispatch(fetchCharacters(currentPage))
+        const promise = dispatch(fetchCharacters(currentPage))
+        return () => {
+            promise.abort()
+        }
     }, [currentPage])
 
     const paginate = (pageNumber) => {
@@ -59,4 +61,4 @@ const Characters = () => {
     );
 };
 
-export default React.memo(Characters);
+export default Characters;

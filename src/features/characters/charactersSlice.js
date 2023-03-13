@@ -1,6 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {charactersAPI} from "../../api/Api";
 import {useDispatch} from "react-redux";
+import axios, {Axios} from "axios";
+import characters from "./Characters";
 
 // From SWAPI we will get all the characters that will be placed in the characters array
 // As well as we have status for handling the status of operation, values for that: 'idle', 'loading', 'succeeded', 'failed'
@@ -45,11 +47,11 @@ export const charactersSlice = createSlice({
 export const fetchCharacters = createAsyncThunk('characters/fetchCharacters', async (currentPage) => {
     try {
         const response = await charactersAPI.getCharacters(currentPage)
-        // console.log(response)
         return response.data
     } catch (e) {
         return e.message
     }
+
 })
 
 // Selectors for convenient work with state
