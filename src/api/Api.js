@@ -7,6 +7,7 @@ const instance = axios.create({
 
 export const charactersAPI = {
     getCharacters(page = 1) {
+        // const source = axios.CancelToken.source()
         return instance
             .get(`people/?page=${page}`) // If status code 200, we will get characters
             .then(response => response)

@@ -1,8 +1,7 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {charactersAPI} from "../../api/Api";
-import {useDispatch} from "react-redux";
-import axios, {Axios} from "axios";
-import characters from "./Characters";
+import axios from "axios";
+
 
 // From SWAPI we will get all the characters that will be placed in the characters array
 // As well as we have status for handling the status of operation, values for that: 'idle', 'loading', 'succeeded', 'failed'
@@ -10,6 +9,7 @@ import characters from "./Characters";
 const initialState = {
     characters: [],
     status: 'idle',
+    currentRequestId: undefined,
     error: null,
     totalCount: 0,
     pageSize: 10,
@@ -27,7 +27,8 @@ export const charactersSlice = createSlice({
     extraReducers(builder) {
         builder
             .addCase(fetchCharacters.fulfilled, (state, action) => {
-                state.status = 'succeeded'
+                console.log(action)
+                state.status = 'idle'
                 state.characters = action.payload.results
                 state.totalCount = action.payload.count
                 state.pageSize = action.payload.results.length
@@ -44,13 +45,28 @@ export const charactersSlice = createSlice({
 })
 
 // Thunks
-export const fetchCharacters = createAsyncThunk('characters/fetchCharacters', async (currentPage) => {
-    try {
-        const response = await charactersAPI.getCharacters(currentPage)
-        return response.data
-    } catch (e) {
-        return e.message
-    }
+export const fetchCharacters = createAsyncThunk('characters/fetchCharacters', async (currentPage, {signal}) => {
+    // try {
+    //     const source = axios.CancelToken.source()
+    //     signal.addEventListener('abort', () => {
+    //         source && source.cancel('Operation canceled due to new request.');
+    //     })
+    //     const {data} = await charactersAPI.getCharacters(currentPage,{
+    //         cancelToken: source.token
+    //     })
+    //     return data
+    // } catch (e) {
+    //     console.log(e)
+    //     return e.message
+    // }
+    const source = axios.CancelToken.source()
+    signal.addEventListener('abort', () => {
+        source.cancel()
+    })
+    const response = await axios.get(`https://swapi.dev/api/people/?page=${currentPage}`, {
+        cancelToken: source.token,
+    })
+    return response.data
 
 })
 

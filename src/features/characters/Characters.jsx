@@ -20,7 +20,7 @@ const Characters = () => {
     const characters = useSelector(selectAllCharacters)
     const status = useSelector(getCharactersStatus)
     const error = useSelector(getCharactersError)
-
+    console.log(status)
     const totalCount = useSelector(state => state.characters.totalCount)
     const currentPage = useSelector(state => state.characters.currentPage)
 
@@ -38,7 +38,7 @@ const Characters = () => {
     let content;
     if (status === 'loading') {
         content = <p>"Loading..."</p>;
-    } else if (status === 'succeeded') {
+    } else if (status === 'idle') {
         content = characters.map(characterCard => {
                 const id = getId(characterCard.url)
                 return (
