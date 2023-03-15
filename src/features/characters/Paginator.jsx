@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import './styles/Paginator.scss'
 import '../../common/Container.scss'
 
-const Paginator = ({currentPage, paginate, totalCount}) => {
-    const pagesCount = Math.ceil(totalCount / 10)
+const Paginator = ({currentPage, paginate, totalCount, pageSize}) => {
+    const pagesCount = Math.ceil(totalCount / pageSize)
     const pageNumbers = []
 
     for (let i = 1; i <= pagesCount; i++) {

@@ -21,7 +21,7 @@ export const charactersAPI = {
 export const planetsApi = {
     getPlanets(page = 1) {
         return instance
-            .get(`planets/?page${page}`)
+            .get(`planets/?page=${page}`)
             .then(response => response)
     },
     getPlanetById(id) {

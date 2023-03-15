@@ -4,6 +4,7 @@ import Characters from "./features/characters/Characters";
 import Header from "./components/Header/Header";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import CharacterProfile from "./features/characters/characterProfile/CharacterProfile";
+import Planets from "./features/planets/Planets";
 
 function App() {
     return (
@@ -12,7 +13,7 @@ function App() {
                 <Header/>
                 <Routes>
                     <Route path={'/characters'} element={<Characters/>} />
-                    <Route path={'/planets'} element={<p>Planets</p>} />
+                    <Route path={'/planets'} element={<Planets />} />
                     <Route path={'/character/:characterId'} element={<CharacterProfile />} />
                 </Routes>
             </BrowserRouter>

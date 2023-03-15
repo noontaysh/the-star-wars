@@ -23,6 +23,7 @@ const Characters = () => {
 
     const totalCount = useSelector(state => state.characters.totalCount)
     const currentPage = useSelector(state => state.characters.currentPage)
+    const pageSize = useSelector(state => state.characters.pageSize)
 
     useEffect(() => {
         const promise = dispatch(fetchCharacters(currentPage))
@@ -53,7 +54,7 @@ const Characters = () => {
     return (
         <div className={'container characters'}>
             <h1 className={'characters__title'}>Characters</h1>
-            <Paginator currentPage={currentPage} paginate={paginate} totalCount={totalCount}/>
+            <Paginator currentPage={currentPage} paginate={paginate} totalCount={totalCount} pageSize={pageSize}/>
             <div className={'characters__content'}>
                 {content}
             </div>
