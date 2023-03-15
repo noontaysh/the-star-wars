@@ -41,7 +41,7 @@ const Characters = () => {
         content = <p>"Loading..."</p>;
     } else if (status === 'idle') {
         content = characters.map(characterCard => {
-                const id = getId(characterCard.url)
+                const id = getId(characterCard.url, 'people')
                 return (
                     <Character key={characterCard.name} characterCard={characterCard} id={id}/>
                 )
