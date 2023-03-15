@@ -12,7 +12,6 @@ const CharacterProfile = () => {
     const character = useSelector(selectCharacter)
     const status = useSelector(getCharacterStatus)
     const error = useSelector(getCharacterError)
-    console.log(character)
 
     useEffect(() => {
         dispatch(loadCharacter(characterId))

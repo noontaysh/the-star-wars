@@ -6,10 +6,10 @@ const instance = axios.create({
 })
 
 export const charactersAPI = {
-    getCharacters(page = 1) {
+    getCharacters(page = 1, config) {
         // const source = axios.CancelToken.source()
         return instance
-            .get(`people/?page=${page}`) // If status code 200, we will get characters
+            .get(`people/?page=${page}`, config) // If status code 200, we will get characters
             .then(response => response)
     },
     getCharacterById(id) {

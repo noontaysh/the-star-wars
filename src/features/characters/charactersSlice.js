@@ -9,7 +9,6 @@ import axios from "axios";
 const initialState = {
     characters: [],
     status: 'idle',
-    currentRequestId: undefined,
     error: null,
     totalCount: 0,
     pageSize: 10,
@@ -27,7 +26,6 @@ export const charactersSlice = createSlice({
     extraReducers(builder) {
         builder
             .addCase(fetchCharacters.fulfilled, (state, action) => {
-                console.log(action)
                 state.status = 'idle'
                 state.characters = action.payload.results
                 state.totalCount = action.payload.count
@@ -37,8 +35,12 @@ export const charactersSlice = createSlice({
                 state.status = 'loading'
             })
             .addCase(fetchCharacters.rejected, (state, action) => {
-                state.status = 'failed'
-                state.error = action.payload
+                if (action.meta.aborted) {
+                    state.status = 'loading'
+                } else {
+                    state.status = 'failed'
+                    state.error = action.payload
+                }
             })
     }
 
@@ -46,25 +48,12 @@ export const charactersSlice = createSlice({
 
 // Thunks
 export const fetchCharacters = createAsyncThunk('characters/fetchCharacters', async (currentPage, {signal}) => {
-    // try {
-    //     const source = axios.CancelToken.source()
-    //     signal.addEventListener('abort', () => {
-    //         source && source.cancel('Operation canceled due to new request.');
-    //     })
-    //     const {data} = await charactersAPI.getCharacters(currentPage,{
-    //         cancelToken: source.token
-    //     })
-    //     return data
-    // } catch (e) {
-    //     console.log(e)
-    //     return e.message
-    // }
     const source = axios.CancelToken.source()
     signal.addEventListener('abort', () => {
         source.cancel()
     })
-    const response = await axios.get(`https://swapi.dev/api/people/?page=${currentPage}`, {
-        cancelToken: source.token,
+    const response = await charactersAPI.getCharacters(currentPage, {
+        cancelToken: source.token
     })
     return response.data
 

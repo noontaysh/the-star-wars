@@ -4,7 +4,6 @@ import {NavLink} from "react-router-dom";
 
 const Character = ({characterCard, id}) => {
     return (
-
         <NavLink to={`/character/${id}`} className={'character'} >
             <section>
                 <div className={'character__image'}>
@@ -15,7 +14,7 @@ const Character = ({characterCard, id}) => {
                     <h3>{characterCard.name}</h3>
                     <div className={'character__paragraphs'}>
                         <p>{characterCard.birth_year}</p>
-                        <p>{characterCard.mass}kg</p>
+                        <p>{characterCard.mass}</p> {/*{characterCard.mass !== 'unknown' ? 'kg' : ''}*/}
                     </div>
                 </div>
             </section>
