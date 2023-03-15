@@ -10,9 +10,7 @@ const initialState = {
 export const characterSlice = createSlice({
     name: 'character',
     initialState,
-    reducers: {
-
-    },
+    reducers: {},
     extraReducers(builder) {
         builder
             .addCase(loadCharacter.fulfilled, (state, action) => {

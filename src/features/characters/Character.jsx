@@ -14,7 +14,7 @@ const Character = ({characterCard, id}) => {
                     <h3>{characterCard.name}</h3>
                     <div className={'character__paragraphs'}>
                         <p>{characterCard.birth_year}</p>
-                        <p>{characterCard.mass}</p> {/*{characterCard.mass !== 'unknown' ? 'kg' : ''}*/}
+                        <p>{characterCard.mass}{characterCard.mass !== 'unknown' ? 'kg' : ''}</p>
                     </div>
                 </div>
             </section>

@@ -8,8 +8,8 @@ const CharacterExcerpt = (props) => {
             <div className={'characterProfile__content'}>
                 <h1>{props.name}</h1>
                 <p>Birth year: {props.birth_year}</p>
-                <p>Height: {props.height}cm</p>
-                <p>Mass: {props.mass}kg</p>
+                <p>Height: {props.height}{props.height !== 'unknown' ? 'cm' : ''}</p>
+                <p>Mass: {props.mass}{props.mass !== 'unknown' ? 'kg' : ''}</p>
                 <p>Gender: {props.gender}</p>
                 <p>Hair Color: {props.hair_color}</p>
                 <p>Skin Color: {props.skin_color}</p>

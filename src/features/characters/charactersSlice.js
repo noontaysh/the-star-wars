@@ -48,14 +48,18 @@ export const charactersSlice = createSlice({
 
 // Thunks
 export const fetchCharacters = createAsyncThunk('characters/fetchCharacters', async (currentPage, {signal}) => {
-    const source = axios.CancelToken.source()
-    signal.addEventListener('abort', () => {
-        source.cancel()
-    })
-    const response = await charactersAPI.getCharacters(currentPage, {
-        cancelToken: source.token
-    })
-    return response.data
+    try {
+        const source = axios.CancelToken.source()
+        signal.addEventListener('abort', () => {
+            source.cancel()
+        })
+        const response = await charactersAPI.getCharacters(currentPage, {
+            cancelToken: source.token
+        })
+        return response.data
+    } catch (e) {
+        return e
+    }
 
 })
 

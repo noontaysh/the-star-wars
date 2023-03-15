@@ -20,7 +20,7 @@ const Characters = () => {
     const characters = useSelector(selectAllCharacters)
     const status = useSelector(getCharactersStatus)
     const error = useSelector(getCharactersError)
-    console.log(status)
+
     const totalCount = useSelector(state => state.characters.totalCount)
     const currentPage = useSelector(state => state.characters.currentPage)
 
