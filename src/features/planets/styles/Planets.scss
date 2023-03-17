@@ -1,14 +1,14 @@
 @import 'src/common/StyleVariables';
 
-.characters {
+.planets {
   @extend %section
 }
 
-.characters__content {
+.planets__content {
   @extend %content__placing
 }
 
-.characters__title {
+.planets__title {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 3px;

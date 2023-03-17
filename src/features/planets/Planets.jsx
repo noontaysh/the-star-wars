@@ -4,6 +4,8 @@ import {fetchPlanets, getPlanetsError, getPlanetsStatus, selectAllPlanets} from 
 import PlanetCard from "./PlanetCard";
 import Paginator from "../characters/Paginator";
 import {pageChanged} from "./planetsSlice";
+import {getId} from "../../utilities/getImageById";
+import './styles/Planets.scss'
 
 const Planets = () => {
     const dispatch = useDispatch()
@@ -29,17 +31,21 @@ const Planets = () => {
         content = <p>"Loading..."</p>
     } else if (status === 'idle') {
         content = planets.map(planetCard => {
+            const id = getId(planetCard.url, 'planets')
             return (
-               <PlanetCard key={planetCard.name} {...planetCard} id={1} />
+               <PlanetCard key={planetCard.name} {...planetCard} id={id} />
             )
         })
     } else if (status === 'failed') {
         content = <p>{error}</p>
     }
     return (
-        <div>
-            <Paginator currentPage={currentPage} totalCount={totalCount} pageSize={pageSize} paginate={paginate}/>
-            {content}
+        <div className={'planets container'}>
+            <h1 className={'planets__title'}>Planets</h1>
+            <Paginator currentPage={currentPage} paginate={paginate} totalCount={totalCount} pageSize={pageSize}/>
+            <div className={'planets__content'}>
+                {content}
+            </div>
         </div>
     );
 };

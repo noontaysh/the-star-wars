@@ -1,3 +1,5 @@
+@import 'src/common/StyleVariables';
+
 .character {
   width: 18%;
   background-color: rgba(199, 199, 199, 0.43);
@@ -25,7 +27,7 @@
 
 .character__content {
   padding: .5rem;
-  position: relative;
+
   h3 {
     width: 100%;
     text-align: center;
