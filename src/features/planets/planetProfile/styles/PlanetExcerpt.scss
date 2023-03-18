@@ -1,10 +1,9 @@
 @import 'src/common/StyleVariables';
 
-.characterProfile {
+.planetProfile {
   @extend %profile
 }
 
-.characterProfile__content {
+.planetProfile__content {
   @extend %profile__content
 }
-
