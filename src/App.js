@@ -14,9 +14,9 @@ function App() {
                 <Header/>
                 <Routes>
                     <Route path={'/characters'} element={<Characters/>} />
-                    <Route path={'/character/:characterId'} element={<CharacterProfile />} />
+                    <Route path={'/characters/:characterId'} element={<CharacterProfile />} />
                     <Route path={'/planets'} element={<Planets />} />
-                    {/*<Route path={'/planet/:planetId'} element={<PlanetProfile />} />*/}
+                    <Route path={'/planets/:planetId'} element={<PlanetProfile />} />
                 </Routes>
             </BrowserRouter>
         </div>

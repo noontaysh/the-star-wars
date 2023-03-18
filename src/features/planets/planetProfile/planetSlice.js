@@ -28,9 +28,10 @@ export const planetSlice = createSlice({
 })
 
 // Thunk
-export const loadPlanet = createAsyncThunk('planet/loadPlanet', async (planetId) => {
+export const loadPlanet = createAsyncThunk('planets/loadPlanet', async (planetId) => {
     try {
         const response = await planetsApi.getPlanetById(planetId)
+        console.log(response)
         return response.data
     } catch (error) {
         return error.message

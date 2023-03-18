@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 
 const Character = ({characterCard, id}) => {
     return (
-        <NavLink to={`/character/${id}`} className={'character'} >
+        <NavLink to={`/characters/${id}`} className={'character'} >
             <section>
                 <div className={'character__image'}>
                     {/*images were taken from this site https://starwars-visualguide.com/#/characters?page=1, cause SWAPI doesn't have its own*/}
