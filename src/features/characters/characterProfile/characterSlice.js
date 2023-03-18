@@ -28,10 +28,9 @@ export const characterSlice = createSlice({
 })
 
 // Thunks
-export const loadCharacter = createAsyncThunk('characters/loadCharacter', async (characterId) => {
+export const loadCharacter = createAsyncThunk('character/loadCharacter', async (characterId) => {
     try {
         const response = await charactersAPI.getCharacterById(characterId)
-        console.log(response.data)
         return response.data
     } catch (e) {
         return e.message
