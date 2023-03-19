@@ -10,7 +10,9 @@ const Header = () => {
                 <NavLink to={'/characters'} className={(navData) => (navData.isActive && 'link_active')}>
                     <p>Characters</p>
                 </NavLink>
-                <img src="https://cdn.cdnlogo.com/logos/s/58/star-wars.png" alt=""/>
+                <NavLink to={'/'}>
+                    <img src="https://cdn.cdnlogo.com/logos/s/58/star-wars.png" alt=""/>
+                </NavLink>
                 <NavLink to={'/planets'} className={(navData) => (navData.isActive && 'link_active')}>
                     <p>Planets</p>
                 </NavLink>

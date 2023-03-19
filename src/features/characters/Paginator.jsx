@@ -33,7 +33,7 @@ const Paginator = ({currentPage, paginate, totalCount, pageSize}) => {
                         <i className="arrow left"></i>
                     </button>}
                     {pageNumbers.filter(p => p >= leftPortionPageNum && p <= rightPortionPageNum).map(number => (
-                        <li className={currentPage === number ? 'active' : 'paginator__number'} key={number}
+                        <li className={currentPage === number ? 'number__active' : 'paginator__number'} key={number}
                             onClick={() => paginate(number)}>
                             {number}
                         </li>
