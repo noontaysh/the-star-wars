@@ -19,9 +19,9 @@ export const charactersAPI = {
 }
 
 export const planetsApi = {
-    getPlanets(page = 1) {
+    getPlanets(page = 1, config) {
         return instance
-            .get(`planets/?page=${page}`)
+            .get(`planets/?page=${page}`, config)
             .then(response => response)
     },
     getPlanetById(id) {

@@ -19,7 +19,10 @@ const Planets = () => {
     const pageSize = useSelector(state => state.planets.pageSize)
 
     useEffect( () => {
-        dispatch(fetchPlanets(currentPage))
+        const promise = dispatch(fetchPlanets(currentPage))
+        return () => {
+            promise.abort()
+        }
     }, [currentPage])
 
     const paginate = (pageNumber) => {

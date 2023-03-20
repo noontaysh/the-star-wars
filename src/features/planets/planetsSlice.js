@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {planetsApi} from "../../api/Api";
+import axios from "axios";
 
 const initialState = {
     planets: [],
@@ -41,9 +42,15 @@ export const planetsSlice = createSlice({
 })
 
 // Thunks
-export const fetchPlanets = createAsyncThunk('planets/fetchPlanets', async (currentPage) => {
+export const fetchPlanets = createAsyncThunk('planets/fetchPlanets', async (currentPage, {signal}) => {
     try {
-        const response = await planetsApi.getPlanets(currentPage)
+        const source = axios.CancelToken.source()
+        signal.addEventListener('abort', () => {
+            source.cancel()
+        })
+        const response = await planetsApi.getPlanets(currentPage, {
+            cancelToken: source.token
+        })
         return response.data
     } catch (e) {
         return e.message
