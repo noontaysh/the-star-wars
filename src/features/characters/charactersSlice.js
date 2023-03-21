@@ -12,7 +12,7 @@ const initialState = {
     error: null,
     totalCount: 0,
     pageSize: 10,
-    currentPage: 1,
+    currentPage: 1, // 10 by default
 }
 
 export const charactersSlice = createSlice({

@@ -30,3 +30,16 @@ export const planetsApi = {
             .then(response => response)
     }
 }
+
+export const speciesApi = {
+    getSpecies(page = 1, config) {
+        return instance
+            .get(`species/?page=${page}`, config)
+            .then(response => response)
+    },
+    getSpecieById(id) {
+        return instance
+            .get(`species/${id}`)
+            .then(response => response)
+    }
+}

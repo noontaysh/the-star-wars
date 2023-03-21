@@ -1,9 +1,9 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {planetsApi} from "../../api/Api";
 import axios from "axios";
+import {speciesApi} from "../../api/Api";
 
 const initialState = {
-    planets: [],
+    entities: [],
     status: 'idle',
     error: null,
     currentPage: 1,
@@ -11,8 +11,8 @@ const initialState = {
     pageSize: 10, // 10 by default
 }
 
-export const planetsSlice = createSlice({
-    name: 'planets',
+export const speciesSlice = createSlice({
+    name: 'species',
     initialState,
     reducers: {
         pageChanged(state, action) {
@@ -21,18 +21,18 @@ export const planetsSlice = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(fetchPlanets.fulfilled, (state, action) => {
+            .addCase(fetchSpecies.fulfilled, (state, action) => {
                 state.status = 'idle'
-                state.planets = action.payload.results
+                state.entities = action.payload.results
                 state.totalCount = action.payload.count
                 state.pageSize = action.payload.results.length
             })
-            .addCase(fetchPlanets.pending, (state, action) => {
-                state.status = 'loading'
+            .addCase(fetchSpecies.pending, (state, action) => {
+                state.status = 'pending'
             })
-            .addCase(fetchPlanets.rejected, (state, action) => {
-                if (action.meta.aborted) {
-                    state.status = 'loading'
+            .addCase(fetchSpecies.rejected, (state, action) => {
+                if(action.meta.aborted) {
+                    state.status = 'pending'
                 } else {
                     state.status = 'failed'
                     state.error = action.payload
@@ -42,13 +42,14 @@ export const planetsSlice = createSlice({
 })
 
 // Thunks
-export const fetchPlanets = createAsyncThunk('planets/fetchPlanets', async (currentPage, {signal}) => {
+
+export const fetchSpecies = createAsyncThunk('species/fetchSpecies', async (currentPage, {signal}) => {
     try {
         const source = axios.CancelToken.source()
         signal.addEventListener('abort', () => {
             source.cancel()
         })
-        const response = await planetsApi.getPlanets(currentPage, {
+        const response = await speciesApi.getSpecies(currentPage, {
             cancelToken: source.token
         })
         return response.data
@@ -57,11 +58,8 @@ export const fetchPlanets = createAsyncThunk('planets/fetchPlanets', async (curr
     }
 })
 
-// Selectors
-export const selectAllPlanets = (state) => state.planets.planets
-export const getPlanetsStatus = (state) => state.planets.status
-export const getPlanetsError = (state) => state.planets.error
+export const selectAllSpecies = (state) => state.species.species
+export const getSpeciesError = (state) => state.species.error
+export const getSpeciesStatus = (state) => state.species.status
 
-export const {pageChanged} = planetsSlice.actions
-
-export default planetsSlice.reducer
+export default speciesSlice.reducer
