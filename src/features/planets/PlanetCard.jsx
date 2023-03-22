@@ -6,7 +6,7 @@ const PlanetCard = ({id, ...props}) => {
     return (
         <NavLink to={`/planets/${id}`} className={'planet'}>
             <div className={'planet__image'}>
-                {/*images were taken from this site https://starwars-visualguide.com/#/characters?page=1, cause SWAPI doesn't have its own*/}
+                {/*images were taken from this site https://starwars-visualguide.com/#/planets?page=1, cause SWAPI doesn't have its own*/}
                 <img
                     src={`https://starwars-visualguide.com/./assets/img/planets/${id}.jpg`}
                     alt=""

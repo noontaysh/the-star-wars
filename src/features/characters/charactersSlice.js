@@ -29,7 +29,7 @@ export const charactersSlice = createSlice({
                 state.status = 'idle'
                 state.characters = action.payload.results
                 state.totalCount = action.payload.count
-                state.pageSize = action.payload.results.length
+                // state.pageSize = action.payload.results.length
             })
             .addCase(fetchCharacters.pending, (state, action) => {
                 state.status = 'loading'

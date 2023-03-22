@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchPlanets, getPlanetsError, getPlanetsStatus, selectAllPlanets} from "./planetsSlice";
 import PlanetCard from "./PlanetCard";
-import Paginator from "../characters/Paginator";
+import Paginator from "../../components/Paginator/Paginator";
 import {pageChanged} from "./planetsSlice";
 import {getId} from "../../utilities/getImageById";
 import './styles/Planets.scss'
@@ -18,7 +18,7 @@ const Planets = () => {
     const totalCount = useSelector(state => state.planets.totalCount)
     const pageSize = useSelector(state => state.planets.pageSize)
 
-    useEffect( () => {
+    useEffect(() => {
         const promise = dispatch(fetchPlanets(currentPage))
         return () => {
             promise.abort()
@@ -36,7 +36,7 @@ const Planets = () => {
         content = planets.map(planetCard => {
             const id = getId(planetCard.url, 'planets')
             return (
-               <PlanetCard key={planetCard.name} {...planetCard} id={id} />
+                <PlanetCard key={planetCard.name} {...planetCard} id={id}/>
             )
         })
     } else if (status === 'failed') {

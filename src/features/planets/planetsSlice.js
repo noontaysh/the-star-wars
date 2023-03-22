@@ -25,7 +25,7 @@ export const planetsSlice = createSlice({
                 state.status = 'idle'
                 state.planets = action.payload.results
                 state.totalCount = action.payload.count
-                state.pageSize = action.payload.results.length
+                // state.pageSize = action.payload.results.length
             })
             .addCase(fetchPlanets.pending, (state, action) => {
                 state.status = 'loading'

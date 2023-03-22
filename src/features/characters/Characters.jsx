@@ -11,7 +11,7 @@ import Character from "./Character";
 import './styles/Characters.scss'
 import '../../common/Container.scss'
 import {getId} from "../../utilities/getImageById";
-import Paginator from "./Paginator";
+import Paginator from "../../components/Paginator/Paginator";
 
 const Characters = () => {
     const dispatch = useDispatch()

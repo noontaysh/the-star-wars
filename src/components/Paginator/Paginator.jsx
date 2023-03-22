@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './styles/Paginator.scss'
+import '../../features/characters/styles/Paginator.scss'
 import '../../common/Container.scss'
 
 const Paginator = ({currentPage, paginate, totalCount, pageSize}) => {
