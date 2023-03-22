@@ -45,3 +45,43 @@
     font-weight: 300;
   }
 }
+
+%section__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+
+  position: absolute;
+  top: 1.6rem;
+  left: 2.5rem;
+
+  padding-right: 6rem;
+  border-bottom: 1px black solid;
+}
+
+%card {
+  width: 18%;
+  background-color: rgba(199, 199, 199, 0.43);
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  margin: .6rem;
+
+  text-decoration: none;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+
+  h3 {
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+%card__image {
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+}

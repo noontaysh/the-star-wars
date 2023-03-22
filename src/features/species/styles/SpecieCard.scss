@@ -1,11 +1,10 @@
 @import 'src/common/StyleVariables';
 
-.planet {
+.specie {
   @extend %card
 }
 
 
-.planet__image {
+.specie__image {
   @extend %card__image
 }
-

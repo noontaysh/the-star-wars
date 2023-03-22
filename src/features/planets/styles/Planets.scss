@@ -9,14 +9,5 @@
 }
 
 .planets__title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-
-  position: absolute;
-  top: 1.6rem;
-  left: 2.5rem;
-
-  padding-right: 6rem;
-  border-bottom: 1px black solid;
+  @extend %section__title
 }

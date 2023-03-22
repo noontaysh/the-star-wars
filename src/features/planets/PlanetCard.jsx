@@ -9,7 +9,7 @@ const PlanetCard = ({id, ...props}) => {
                 {/*images were taken from this site https://starwars-visualguide.com/#/planets?page=1, cause SWAPI doesn't have its own*/}
                 <img
                     src={`https://starwars-visualguide.com/./assets/img/planets/${id}.jpg`}
-                    alt=""
+                    alt={props.name}
                     onError={(e) => {
                         e.target.onError = null;
                         e.target.src = `https://starwars-visualguide.com/./assets/img/placeholder.jpg`

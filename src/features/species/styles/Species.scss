@@ -1,0 +1,14 @@
+@import 'src/common/StyleVariables';
+
+.species {
+  @extend %section;
+}
+
+.species__content {
+  @extend %content__placing;
+  text-align: left;
+}
+
+.species__title {
+  @extend %section__title
+}

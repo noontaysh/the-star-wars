@@ -4,6 +4,7 @@ import {fetchSpecies, getSpeciesError, getSpeciesStatus, pageChanged, selectAllS
 import {getId} from "../../utilities/getImageById";
 import Paginator from "../../components/Paginator/Paginator";
 import SpecieCard from "./SpecieCard";
+import './styles/Species.scss'
 
 const Species = () => {
     const dispatch = useDispatch()
@@ -43,9 +44,12 @@ const Species = () => {
     }
 
     return (
-        <div className={'container'}>
-            <Paginator currentPage={currentPage} paginate={paginate} totalCount={totalCount} pageSize={pageSize} />
-            {content}
+        <div className={'container species'}>
+            <h1 className={'species__title'}>Species</h1>
+            <Paginator currentPage={currentPage} paginate={paginate} totalCount={totalCount} pageSize={pageSize}/>
+            <div className={'species__content'}>
+                {content}
+            </div>
         </div>
     );
 };
