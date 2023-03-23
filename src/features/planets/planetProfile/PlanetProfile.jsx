@@ -6,9 +6,11 @@ import PlanetExcerpt from "./PlanetExcerpt";
 
 const PlanetProfile = () => {
     const {planetId} = useParams()
+    console.log(planetId)
     const dispatch = useDispatch()
 
     const planet = useSelector(selectPlanet)
+    console.log(planet)
     const status = useSelector(getPlanetStatus)
     const error = useSelector(getPlanetError)
 
