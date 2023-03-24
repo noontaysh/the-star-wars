@@ -4,6 +4,7 @@ import characterReducer from '../features/characters/characterProfile/characterS
 import planetsReducer from '../features/planets/planetsSlice'
 import planetReducer from '../features/planets/planetProfile/planetSlice'
 import speciesReducer from '../features/species/speciesSlice'
+import specieReducer from '../features/species/specieProfile/specieProfile'
 
 export const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
         planets: planetsReducer,
         planet: planetReducer,
         species: speciesReducer,
+        specie: specieReducer,
     }
 })
 
