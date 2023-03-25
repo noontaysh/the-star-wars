@@ -1,0 +1,9 @@
+@import 'src/common/StyleVariables';
+
+.specie__profile {
+  @extend %profile
+}
+
+.specie__content {
+  @extend %profile__content
+}

@@ -27,7 +27,7 @@ const SpecieProfile = () => {
     }
 
     return (
-        <div>
+        <div className={'container'}>
             {content}
         </div>
     );

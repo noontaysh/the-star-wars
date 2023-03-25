@@ -1,15 +1,16 @@
 import React from 'react';
+import './styles/SpecieExcerpt.scss'
 
 const SpecieExcerpt = ({specieId, ...props}, ) => {
     console.log(props)
     return (
-        <div className={''}>
+        <div className={'specie__profile'}>
             <img src={`https://starwars-visualguide.com./assets/img/species/${specieId}.jpg`} alt=""
                  onError={(e) => {
                      e.target.onError = null;
                      e.target.src = `https://starwars-visualguide.com/./assets/img/placeholder.jpg`
                  }}/>
-            <div className={''}>
+            <div className={'specie__content'}>
                 <h1>{props.name}</h1>
                 <p>Classification: {props.classification}</p>
                 <p>Designation: {props.designation}</p>
