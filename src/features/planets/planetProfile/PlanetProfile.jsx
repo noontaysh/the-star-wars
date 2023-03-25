@@ -6,11 +6,9 @@ import PlanetExcerpt from "./PlanetExcerpt";
 
 const PlanetProfile = () => {
     const {planetId} = useParams()
-    console.log(planetId)
     const dispatch = useDispatch()
 
     const planet = useSelector(selectPlanet)
-    console.log(planet)
     const status = useSelector(getPlanetStatus)
     const error = useSelector(getPlanetError)
 
@@ -20,7 +18,7 @@ const PlanetProfile = () => {
 
     let content
     if (status === 'pending') {
-        content = <p>'Loading...'</p>
+        content = <p>Pending...</p>
     } else if (status === 'idle') {
         content = <PlanetExcerpt {...planet} planetId={planetId} />
     } else if (status === 'failed') {

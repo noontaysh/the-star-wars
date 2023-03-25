@@ -16,7 +16,6 @@ const Species = () => {
     const currentPage = useSelector(state => state.species.currentPage)
     const totalCount = useSelector(state => state.species.totalCount)
     const pageSize = useSelector(state => state.species.pageSize)
-    console.log(pageSize, totalCount, currentPage)
 
     useEffect(() => {
         const promise = dispatch(fetchSpecies(currentPage))

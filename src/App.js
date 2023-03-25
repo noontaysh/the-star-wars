@@ -8,6 +8,7 @@ import Planets from "./features/planets/Planets";
 import PlanetProfile from "./features/planets/planetProfile/PlanetProfile";
 import Root from "./components/Root/Root";
 import Species from "./features/species/Species";
+import SpecieProfile from "./features/species/specieProfile/SpecieProfile";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                     <Route path={'/planets'} element={<Planets />} />
                     <Route path={'/planets/:planetId'} element={<PlanetProfile />} />
                     <Route path={'/species'} element={<Species />} />
+                    <Route path={'/species/:specieId'} element={<SpecieProfile />} />
                     <Route path={'*'} element={<p>You lost your own way my son</p>} />
                 </Routes>
             </BrowserRouter>

@@ -25,7 +25,6 @@ export const speciesSlice = createSlice({
                 state.status = 'idle'
                 state.entities = action.payload.results
                 state.totalCount = action.payload.count
-                // state.pageSize = action.payload.results.length
             })
             .addCase(fetchSpecies.pending, (state, action) => {
                 state.status = 'pending'
@@ -52,7 +51,6 @@ export const fetchSpecies = createAsyncThunk('species/fetchSpecies', async (curr
         const response = await speciesApi.getSpecies(currentPage, {
             cancelToken: source.token
         })
-        console.log(response)
         return response.data
     } catch (e) {
         return e.message

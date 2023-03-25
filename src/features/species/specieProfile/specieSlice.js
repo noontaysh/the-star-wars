@@ -38,7 +38,7 @@ export const loadSpecie = createAsyncThunk('species/loadSpecie', async(specieId)
 })
 
 export const selectSpecie = (state) => state.specie.specie
-export const getSpecieStatus = (state) => state.status
-export const getSpecieError = (state) => state.error
+export const getSpecieStatus = (state) => state.specie.status
+export const getSpecieError = (state) => state.specie.error
 
 export default specieSlice.reducer
