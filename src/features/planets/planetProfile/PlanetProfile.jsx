@@ -1,19 +1,19 @@
 import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getPlanetError, getPlanetStatus, loadPlanet, selectPlanet} from "./planetSlice";
 import PlanetExcerpt from "./PlanetExcerpt";
+import {getEntityError, getEntityStatus, loadProfile, selectEntity} from "../../profile/profileSlice";
 
 const PlanetProfile = () => {
     const {planetId} = useParams()
     const dispatch = useDispatch()
 
-    const planet = useSelector(selectPlanet)
-    const status = useSelector(getPlanetStatus)
-    const error = useSelector(getPlanetError)
+    const planet = useSelector(selectEntity)
+    const status = useSelector(getEntityStatus)
+    const error = useSelector(getEntityError)
 
     useEffect(() => {
-        dispatch(loadPlanet(planetId))
+        dispatch(loadProfile({entityId: planetId, name: 'planets'}))
     }, [planetId])
 
     let content

@@ -2,7 +2,6 @@ import React from 'react';
 import './styles/SpecieExcerpt.scss'
 
 const SpecieExcerpt = ({specieId, ...props}, ) => {
-    console.log(props)
     return (
         <div className={'specie__profile'}>
             <img src={`https://starwars-visualguide.com./assets/img/species/${specieId}.jpg`} alt=""

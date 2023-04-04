@@ -11,9 +11,12 @@ export const charactersAPI = {
             .get(`people/?page=${page}`, config) // If status code 200, we will get characters
             .then(response => response)
     },
-    getCharacterById(id) {
+}
+
+export const profileAPI = {
+    getProfile(id, section) {
         return instance
-            .get(`people/${id}`)
+            .get(`${section}/${id}`)
             .then(response => response)
     }
 }
@@ -24,11 +27,6 @@ export const planetsApi = {
             .get(`planets/?page=${page}`, config)
             .then(response => response)
     },
-    getPlanetById(id) {
-        return instance
-            .get(`planets/${id}`)
-            .then(response => response)
-    }
 }
 
 export const speciesApi = {
@@ -37,9 +35,4 @@ export const speciesApi = {
             .get(`species/?page=${page}`, config)
             .then(response => response)
     },
-    getSpecieById(id) {
-        return instance
-            .get(`species/${id}`)
-            .then(response => response)
-    }
 }

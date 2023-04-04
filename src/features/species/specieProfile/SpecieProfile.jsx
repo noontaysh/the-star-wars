@@ -1,19 +1,19 @@
 import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getSpecieError, getSpecieStatus, loadSpecie, selectSpecie} from "./specieSlice";
 import SpecieExcerpt from "./SpecieExcerpt";
+import {getEntityError, getEntityStatus, loadProfile, selectEntity} from "../../profile/profileSlice";
 
 const SpecieProfile = () => {
     const {specieId} = useParams()
     const dispatch = useDispatch()
 
-    const specie = useSelector(selectSpecie)
-    const status = useSelector(getSpecieStatus)
-    const error = useSelector(getSpecieError)
+    const specie = useSelector(selectEntity)
+    const status = useSelector(getEntityStatus)
+    const error = useSelector(getEntityError)
 
     useEffect(() => {
-        dispatch(loadSpecie(specieId))
+        dispatch(loadProfile({entityId: specieId, name: 'species'}))
     }, [specieId])
 
     let content
