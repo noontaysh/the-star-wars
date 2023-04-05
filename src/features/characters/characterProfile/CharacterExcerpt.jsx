@@ -1,10 +1,10 @@
 import React from 'react';
 import './styles/CharacterProfile.scss'
 
-const CharacterExcerpt = ({characterId, ...props}) => {
+const CharacterExcerpt = ({objectId, ...props}) => {
     return (
         <div className={'characterProfile'}>
-            <img src={`https://starwars-visualguide.com/assets/img/characters/${characterId}.jpg`} alt=""/>
+            <img src={`https://starwars-visualguide.com/assets/img/characters/${objectId}.jpg`} alt=""/>
             <div className={'characterProfile__content'}>
                 <h1>{props.name}</h1>
                 <p>Birth year: {props.birth_year}</p>

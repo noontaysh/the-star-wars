@@ -3,12 +3,10 @@ import './common/Container.scss'
 import Characters from "./features/characters/Characters";
 import Header from "./components/Header/Header";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import CharacterProfile from "./features/characters/characterProfile/CharacterProfile";
 import Planets from "./features/planets/Planets";
-import PlanetProfile from "./features/planets/planetProfile/PlanetProfile";
 import Root from "./components/Root/Root";
 import Species from "./features/species/Species";
-import SpecieProfile from "./features/species/specieProfile/SpecieProfile";
+import Profile from "./features/profile/Profile";
 
 function App() {
     return (
@@ -18,11 +16,11 @@ function App() {
                 <Routes>
                     <Route path={'/'} element={<Root />} />
                     <Route path={'/characters'} element={<Characters/>} />
-                    <Route path={'/characters/:characterId'} element={<CharacterProfile />} />
+                    <Route path={'/people/:objectId'} element={<Profile />} />
                     <Route path={'/planets'} element={<Planets />} />
-                    <Route path={'/planets/:planetId'} element={<PlanetProfile />} />
+                    <Route path={'/planets/:objectId'} element={<Profile />} />
                     <Route path={'/species'} element={<Species />} />
-                    <Route path={'/species/:specieId'} element={<SpecieProfile />} />
+                    <Route path={'/species/:objectId'} element={<Profile />} />
                     <Route path={'*'} element={<p>You lost your own way my son</p>} />
                 </Routes>
             </BrowserRouter>

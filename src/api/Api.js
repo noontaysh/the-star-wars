@@ -14,9 +14,9 @@ export const charactersAPI = {
 }
 
 export const profileAPI = {
-    getProfile(id, section) {
+    getProfile(path) {
         return instance
-            .get(`${section}/${id}`)
+            .get(`${path}`)
             .then(response => response)
     }
 }

@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {charactersAPI, planetsApi, profileAPI, speciesApi} from "../../api/Api";
+import {profileAPI} from "../../api/Api";
 
 const initialState = {
     entity: null,
@@ -28,10 +28,9 @@ export const profileSlice = createSlice({
 })
 
 // Thunks
-export const loadProfile = createAsyncThunk('entities/loadProfile', /**  @param data {object} */ async (data) => {
+export const loadProfile = createAsyncThunk('entities/loadProfile', /**  @param path {string} */ async (path) => {
     try {
-        const {entityId, name} = data
-        const response = await profileAPI.getProfile(entityId, name)
+        const response = await profileAPI.getProfile(path)
         return response.data
     } catch(e) {
         return e.message

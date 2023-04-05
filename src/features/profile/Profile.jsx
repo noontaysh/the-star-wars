@@ -1,26 +1,30 @@
 import React, {useEffect} from 'react';
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import PlanetExcerpt from "./PlanetExcerpt";
-import {getEntityError, getEntityStatus, loadProfile, selectEntity} from "../../profile/profileSlice";
+import {getEntityError, getEntityStatus, loadProfile, selectEntity} from "./profileSlice";
+import ProfileExcerpt from "./ProfileExcerpt";
+import '../../common/Container.scss'
 
-const PlanetProfile = () => {
-    const {planetId} = useParams()
+const Profile = (props) => {
+    const {objectId} = useParams()
+    const {pathname} = useLocation()
     const dispatch = useDispatch()
 
     const planet = useSelector(selectEntity)
     const status = useSelector(getEntityStatus)
     const error = useSelector(getEntityError)
 
+    const apiPath = pathname.replace('/', '') // path to make api request
+
     useEffect(() => {
-        dispatch(loadProfile({entityId: planetId, name: 'planets'}))
-    }, [planetId])
+        dispatch(loadProfile(apiPath))
+    }, [objectId, dispatch])
 
     let content
     if (status === 'pending') {
         content = <p>Pending...</p>
     } else if (status === 'idle') {
-        content = <PlanetExcerpt {...planet} planetId={planetId} />
+        content = <ProfileExcerpt path={pathname} objectId={objectId} {...planet} />
     } else if (status === 'failed') {
         content = <p>{error}</p>
     }
@@ -32,4 +36,4 @@ const PlanetProfile = () => {
     );
 };
 
-export default PlanetProfile;
+export default Profile;

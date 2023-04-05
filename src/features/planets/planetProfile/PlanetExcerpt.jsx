@@ -2,10 +2,10 @@ import React from 'react';
 import {numberWithCommas} from "../../../utilities/numbersWithComas";
 import './styles/PlanetExcerpt.scss'
 
-const PlanetExcerpt = (props) => {
+const PlanetExcerpt = ({objectId, ...props}) => {
     return (
         <div className={'planetProfile'}>
-            <img src={`https://starwars-visualguide.com./assets/img/planets/${props.planetId}.jpg`} alt=""
+            <img src={`https://starwars-visualguide.com./assets/img/planets/${objectId}.jpg`} alt=""
                  onError={(e) => {
                      e.target.onError = null;
                      e.target.src = `https://starwars-visualguide.com/./assets/img/placeholder.jpg`

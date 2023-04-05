@@ -1,10 +1,10 @@
 import React from 'react';
 import './styles/SpecieExcerpt.scss'
 
-const SpecieExcerpt = ({specieId, ...props}, ) => {
+const SpecieExcerpt = ({objectId, ...props}, ) => {
     return (
         <div className={'specie__profile'}>
-            <img src={`https://starwars-visualguide.com./assets/img/species/${specieId}.jpg`} alt=""
+            <img src={`https://starwars-visualguide.com./assets/img/species/${objectId}.jpg`} alt=""
                  onError={(e) => {
                      e.target.onError = null;
                      e.target.src = `https://starwars-visualguide.com/./assets/img/placeholder.jpg`

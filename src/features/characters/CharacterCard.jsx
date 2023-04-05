@@ -2,9 +2,9 @@ import React from 'react';
 import './styles/Character.scss'
 import {NavLink} from "react-router-dom";
 
-const Character = ({characterCard, id}) => {
+const CharacterCard = ({characterCard, id}) => {
     return (
-        <NavLink to={`/characters/${id}`} className={'character'}>
+        <NavLink to={`/people/${id}`} className={'character'}>
             <section>
                 <div className={'character__image'}>
                     {/*images were taken from this site https://starwars-visualguide.com/#/characters?page=1, cause SWAPI doesn't have its own*/}
@@ -26,4 +26,4 @@ const Character = ({characterCard, id}) => {
     );
 };
 
-export default Character;
+export default CharacterCard;

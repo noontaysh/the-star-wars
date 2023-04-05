@@ -7,7 +7,7 @@ import {
     pageChanged,
     selectAllCharacters
 } from "./charactersSlice";
-import Character from "./Character";
+import CharacterCard from "./CharacterCard";
 import './styles/Characters.scss'
 import '../../common/Container.scss'
 import {getId} from "../../utilities/getImageById";
@@ -43,7 +43,7 @@ const Characters = () => {
         content = characters.map(characterCard => {
                 const id = getId(characterCard.url, 'people')
                 return (
-                    <Character key={characterCard.name} characterCard={characterCard} id={id}/>
+                    <CharacterCard key={characterCard.name} characterCard={characterCard} id={id}/>
                 )
             }
         )
