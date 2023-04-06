@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {entitiesAPI, planetsApi} from "../../api/Api";
 import axios from "axios";
-import {speciesApi} from "../../api/Api";
 
 const initialState = {
     entities: [],
@@ -11,8 +11,8 @@ const initialState = {
     pageSize: 10, // 10 by default
 }
 
-export const speciesSlice = createSlice({
-    name: 'species',
+export const entitiesSlice = createSlice({
+    name: 'entities',
     initialState,
     reducers: {
         pageChanged(state, action) {
@@ -21,16 +21,16 @@ export const speciesSlice = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(fetchSpecies.fulfilled, (state, action) => {
-                state.status = 'idle'
+            .addCase(fetchEntities.fulfilled, (state, action) => {
+                state.status = 'success'
                 state.entities = action.payload.results
                 state.totalCount = action.payload.count
             })
-            .addCase(fetchSpecies.pending, (state, action) => {
+            .addCase(fetchEntities.pending, (state, action) => {
                 state.status = 'pending'
             })
-            .addCase(fetchSpecies.rejected, (state, action) => {
-                if(action.meta.aborted) {
+            .addCase(fetchEntities.rejected, (state, action) => {
+                if (action.meta.aborted) {
                     state.status = 'pending'
                 } else {
                     state.status = 'failed'
@@ -41,14 +41,17 @@ export const speciesSlice = createSlice({
 })
 
 // Thunks
-
-export const fetchSpecies = createAsyncThunk('species/fetchSpecies', async (currentPage, {signal}) => {
+export const fetchEntities = createAsyncThunk('planets/fetchEntities', /**
+ @param {Object} signal
+ @param {Object} data
+ */ async (data, {signal}) => {
     try {
+        const {pathname, currentPage} = data
         const source = axios.CancelToken.source()
         signal.addEventListener('abort', () => {
             source.cancel()
         })
-        const response = await speciesApi.getSpecies(currentPage, {
+        const response = await entitiesAPI.getAllEntities(pathname,currentPage, {
             cancelToken: source.token
         })
         return response.data
@@ -57,9 +60,11 @@ export const fetchSpecies = createAsyncThunk('species/fetchSpecies', async (curr
     }
 })
 
-export const selectAllSpecies = (state) => state.species.entities
-export const getSpeciesError = (state) => state.species.error
-export const getSpeciesStatus = (state) => state.species.status
+// Selectors
+export const selectAllEntities = (state) => state.entities.entities
+export const getEntitiesStatus = (state) => state.entities.status
+export const getEntitiesError = (state) => state.entities.error
 
-export const {pageChanged} = speciesSlice.actions
-export default speciesSlice.reducer
+export const {pageChanged} = entitiesSlice.actions
+
+export default entitiesSlice.reducer

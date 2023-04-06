@@ -1,13 +1,13 @@
 @import 'src/common/StyleVariables';
 
-.planets {
+.entities {
   @extend %section
 }
 
-.planets__content {
+.entities__content {
   @extend %content__placing
 }
 
-.planets__title {
+.entities__title {
   @extend %section__title
 }

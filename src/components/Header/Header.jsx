@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <header className={'container'}>
             <div>
-                <NavLink to={'/characters'} className={(navData) => (navData.isActive && 'link_active')}>
+                <NavLink to={'/people'} className={(navData) => (navData.isActive && 'link_active')}>
                     <p>Characters</p>
                 </NavLink>
                 <NavLink to={'/'}>

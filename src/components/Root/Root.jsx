@@ -12,7 +12,7 @@ const Root = () => {
     return (
         <div className={'root container'}>
             <div className={'root__item'}>
-                <NavLink to={'/characters/'}>
+                <NavLink to={'/people/'}>
                     <img src={charactersLogo} alt=""/>
                     <h2>Characters</h2>
                 </NavLink>

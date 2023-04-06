@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Since SWAPI is completely open API, we don`t need any key
 const instance = axios.create({
-    baseURL: 'https://swapi.dev/api/'
+    baseURL: 'https://swapi.dev/api'
 })
 
 export const charactersAPI = {
@@ -11,6 +11,14 @@ export const charactersAPI = {
             .get(`people/?page=${page}`, config) // If status code 200, we will get characters
             .then(response => response)
     },
+}
+
+export const entitiesAPI = {
+    getAllEntities(path, page = 1, config) {
+        return instance
+            .get(`${path}/?page=${page}`,config)
+            .then(response => response)
+    }
 }
 
 export const profileAPI = {

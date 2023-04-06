@@ -10,21 +10,21 @@ const Profile = (props) => {
     const {pathname} = useLocation()
     const dispatch = useDispatch()
 
-    const planet = useSelector(selectEntity)
+    const entity = useSelector(selectEntity)
     const status = useSelector(getEntityStatus)
     const error = useSelector(getEntityError)
 
-    const apiPath = pathname.replace('/', '') // path to make api request
+    // const apiPath = pathname.replace('/', '') // path to make api request
 
     useEffect(() => {
-        dispatch(loadProfile(apiPath))
-    }, [objectId, dispatch])
+        dispatch(loadProfile(pathname))
+    }, [objectId, dispatch, pathname])
 
     let content
     if (status === 'pending') {
         content = <p>Pending...</p>
     } else if (status === 'idle') {
-        content = <ProfileExcerpt path={pathname} objectId={objectId} {...planet} />
+        content = <ProfileExcerpt path={pathname} objectId={objectId} {...entity} />
     } else if (status === 'failed') {
         content = <p>{error}</p>
     }
