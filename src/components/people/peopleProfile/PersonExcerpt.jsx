@@ -1,7 +1,7 @@
 import React from 'react';
-import './styles/CharacterProfile.scss'
+import './styles/PersonProfile.scss'
 
-const CharacterExcerpt = ({objectId, ...props}) => {
+const PersonExcerpt = ({objectId, ...props}) => {
     return (
         <div className={'characterProfile'}>
             <img src={`https://starwars-visualguide.com/assets/img/characters/${objectId}.jpg`} alt=""/>
@@ -18,4 +18,4 @@ const CharacterExcerpt = ({objectId, ...props}) => {
     );
 };
 
-export default CharacterExcerpt;
+export default PersonExcerpt;

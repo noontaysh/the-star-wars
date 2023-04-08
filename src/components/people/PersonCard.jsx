@@ -1,8 +1,8 @@
 import React from 'react';
-import './styles/Character.scss'
+import './styles/Person.scss'
 import {NavLink} from "react-router-dom";
 
-const CharacterCard = ({id, ...props}) => {
+const PersonCard = ({id, ...props}) => {
     return (
         <NavLink to={`/people/${id}`} className={'character'}>
             <section>
@@ -26,4 +26,4 @@ const CharacterCard = ({id, ...props}) => {
     );
 };
 
-export default CharacterCard;
+export default PersonCard;

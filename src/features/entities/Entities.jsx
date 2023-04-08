@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {fetchEntities, getEntitiesError, getEntitiesStatus, selectAllEntities} from "./entitiesSlice";
+import {fetchEntities, selectAllEntities} from "./entitiesSlice";
 import {pageChanged} from "./entitiesSlice";
 import {getId} from "../../utilities/getImageById";
 import {useLocation} from "react-router-dom";
@@ -13,13 +13,7 @@ const Entities = () => {
     const dispatch = useDispatch()
     const {pathname} = useLocation()
 
-    const entities = useSelector(selectAllEntities)
-    const status = useSelector(getEntitiesStatus)
-    const error = useSelector(getEntitiesError)
-
-    const currentPage = useSelector(state => state.entities.currentPage)
-    const totalCount = useSelector(state => state.entities.totalCount)
-    const pageSize = useSelector(state => state.entities.pageSize)
+    const {entities, status, error, currentPage, totalCount, pageSize} = useSelector(selectAllEntities)
 
     useEffect(() => {
         const promise = dispatch(fetchEntities({pathname, currentPage}))

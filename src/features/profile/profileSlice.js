@@ -7,26 +7,6 @@ const initialState = {
     error: null,
 }
 
-export const profileSlice = createSlice({
-    name: 'profile',
-    initialState,
-    reducers: {},
-    extraReducers(builder) {
-        builder
-            .addCase(loadProfile.fulfilled, (state, action) => {
-                state.entity = action.payload
-                state.status = 'idle'
-            })
-            .addCase(loadProfile.pending, (state, action) => {
-                state.status = 'pending'
-            })
-            .addCase(loadProfile.rejected, (state, action) => {
-                state.status = 'failed'
-                state.error = action.payload
-            })
-    }
-})
-
 // Thunks
 export const loadProfile = createAsyncThunk('entities/loadProfile', /**  @param path {string} */ async (path) => {
     try {
@@ -37,8 +17,25 @@ export const loadProfile = createAsyncThunk('entities/loadProfile', /**  @param 
     }
 })
 
-export const selectEntity = (state) => state.profile.entity
-export const getEntityStatus = (state) => state.profile.status
-export const getEntityError = (state) => state.profile.error
+export const profileSlice = createSlice({
+    name: 'profile',
+    initialState,
+    reducers: {},
+    extraReducers: {
+            [loadProfile.fulfilled]: (state, action) => {
+                state.entity = action.payload
+                state.status = 'success'
+            },
+            [loadProfile.pending]: (state, action) => {
+                state.status = 'pending'
+            },
+            [loadProfile.rejected]: (state, action) => {
+                state.status = 'failed'
+                state.error = action.payload
+            },
+    }
+})
+
+export const selectEntity = (state) => state.profile
 
 export default profileSlice.reducer

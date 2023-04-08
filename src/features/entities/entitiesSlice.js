@@ -11,35 +11,6 @@ const initialState = {
     pageSize: 10, // 10 by default
 }
 
-export const entitiesSlice = createSlice({
-    name: 'entities',
-    initialState,
-    reducers: {
-        pageChanged(state, action) {
-            state.currentPage = action.payload
-        }
-    },
-    extraReducers(builder) {
-        builder
-            .addCase(fetchEntities.fulfilled, (state, action) => {
-                state.status = 'success'
-                state.entities = action.payload.results
-                state.totalCount = action.payload.count
-            })
-            .addCase(fetchEntities.pending, (state, action) => {
-                state.status = 'pending'
-            })
-            .addCase(fetchEntities.rejected, (state, action) => {
-                if (action.meta.aborted) {
-                    state.status = 'pending'
-                } else {
-                    state.status = 'failed'
-                    state.error = action.payload
-                }
-            })
-    }
-})
-
 // Thunks
 export const fetchEntities = createAsyncThunk('planets/fetchEntities', /**
  @param {Object} signal
@@ -60,10 +31,37 @@ export const fetchEntities = createAsyncThunk('planets/fetchEntities', /**
     }
 })
 
+export const entitiesSlice = createSlice({
+    name: 'entities',
+    initialState,
+    reducers: {
+        pageChanged(state, action) {
+            state.currentPage = action.payload
+        }
+    },
+    extraReducers: {
+            [fetchEntities.fulfilled]: (state, action) => {
+                state.status = 'success'
+                state.entities = action.payload.results
+                state.totalCount = action.payload.count
+            },
+            [fetchEntities.pending]: (state, action) => {
+                state.status = 'pending'
+            },
+            [fetchEntities.rejected]: (state, action) => {
+                if (action.meta.aborted) {
+                    state.status = 'pending'
+                } else {
+                    state.status = 'failed'
+                    state.error = action.payload
+                }
+            }
+    }
+})
+
+
 // Selectors
-export const selectAllEntities = (state) => state.entities.entities
-export const getEntitiesStatus = (state) => state.entities.status
-export const getEntitiesError = (state) => state.entities.error
+export const selectAllEntities = (state) => state.entities
 
 export const {pageChanged} = entitiesSlice.actions
 

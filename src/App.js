@@ -1,17 +1,15 @@
 import './App.scss';
 import './common/Container.scss'
-// import Characters from "./features/characters/Characters";
 import Header from "./components/Header/Header";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-// import Planets from "./features/planets/Planets";
 import Root from "./components/Root/Root";
-// import Species from "./features/species/Species";
 import Profile from "./features/profile/Profile";
 import Entities from "./features/entities/Entities";
+import './common/Container.scss'
 
 function App() {
     return (
-        <div className="App">
+        <div className="App container">
             <BrowserRouter>
                 <Header/>
                 <Routes>
