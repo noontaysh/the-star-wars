@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/Person.scss'
+import './styles/PersonCard.scss'
 import {NavLink} from "react-router-dom";
 
 const PersonCard = ({id, ...props}) => {

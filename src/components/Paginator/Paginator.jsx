@@ -23,7 +23,7 @@ const Paginator = ({currentPage, paginate, totalCount, pageSize}) => {
         } else {
             paginate(currentPage)
         }
-    }, [currentPage])
+    }, [currentPage, leftPortionPageNum, rightPortionPageNum, paginate])
 
     return (
         <div className={'paginator'}>

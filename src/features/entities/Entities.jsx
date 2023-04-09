@@ -41,7 +41,7 @@ const Entities = () => {
     }
     return (
         <div className={'entities container'}>
-            <h1 className={'entities__title'}>Planets</h1>
+            <h1 className={'entities__title'}>{pathname.replace(/\//g, '')}</h1>
             <Paginator currentPage={currentPage} paginate={paginate} totalCount={totalCount} pageSize={pageSize}/>
             <div className={'entities__content'}>
                 {content}

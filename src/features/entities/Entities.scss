@@ -9,5 +9,6 @@
 }
 
 .entities__title {
-  @extend %section__title
+  @extend %section__title;
+  text-transform: capitalize;
 }

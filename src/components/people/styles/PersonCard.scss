@@ -1,0 +1,19 @@
+@import '../../../common/StyleVariables';
+
+.character {
+  @extend %card;
+}
+
+.character__image {
+  @extend %card__image;
+}
+
+.character__content {
+  padding: 0 .5rem .5rem .5rem;
+}
+
+.character__paragraphs {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 300;
+}
