@@ -22,6 +22,8 @@ function App() {
                     <Route path={'/species/:objectId'} element={<Profile />} />
                     <Route path={'/starships/'} element={<Entities />} />
                     <Route path={'/starships/:objectId'} element={<Profile />} />
+                    <Route path={'/vehicles/'} element={<Entities />} />
+                    <Route path={'/vehicles/:objectId'} element={<Profile />} />
                     <Route path={'*'} element={<p>You lost your own way my son</p>} />
                 </Routes>
             </BrowserRouter>

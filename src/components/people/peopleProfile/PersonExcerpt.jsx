@@ -1,11 +1,10 @@
 import React from 'react';
-import './styles/PersonProfile.scss'
 
 const PersonExcerpt = ({objectId, ...props}) => {
     return (
-        <div className={'characterProfile'}>
+        <div className={'excerpt'}>
             <img src={`https://starwars-visualguide.com/assets/img/characters/${objectId}.jpg`} alt=""/>
-            <div className={'characterProfile__content'}>
+            <div className={'excerpt__content'}>
                 <h1>{props.name}</h1>
                 <p>Birth year: {props.birth_year}</p>
                 <p>Height: {props.height}{props.height !== 'unknown' ? 'cm' : ''}</p>

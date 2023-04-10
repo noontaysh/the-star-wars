@@ -1,14 +1,14 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 
-const PlanetCard = ({id, ...props}) => {
+const VehiclesCard = ({id, ...props}) => {
     return (
-        <NavLink to={`/planets/${id}`} className={'card'}>
+        <NavLink to={`/vehicles/${id}`} className={'card'}>
             <div className={'card__image'}>
-                {/*images were taken from this site https://starwars-visualguide.com/#/planets?page=1, cause SWAPI doesn't have its own*/}
+                {/*images were taken from this site https://starwars-visualguide.com/#/species?page=1, cause SWAPI doesn't have its own*/}
                 <img
-                    src={`https://starwars-visualguide.com/./assets/img/planets/${id}.jpg`}
-                    alt={props.name}
+                    src={`https://starwars-visualguide.com/./assets/img/vehicles/${id}.jpg`}
+                    alt={props.model}
                     onError={(e) => {
                         e.target.onError = null;
                         e.target.src = `https://starwars-visualguide.com/./assets/img/placeholder.jpg`
@@ -19,4 +19,4 @@ const PlanetCard = ({id, ...props}) => {
     );
 };
 
-export default PlanetCard;
+export default VehiclesCard;

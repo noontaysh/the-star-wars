@@ -3,6 +3,8 @@ import PlanetExcerpt from "../../components/planets/planetProfile/PlanetExcerpt"
 import PersonExcerpt from "../../components/people/peopleProfile/PersonExcerpt";
 import SpecieExcerpt from "../../components/species/specieProfile/SpecieExcerpt";
 import StarshipExcerpt from "../../components/starships/starshipProfile/StarshipExcerpt";
+import VehiclesExcerpt from "../../components/vehicles/vehiclesProfile/VehiclesExcerpt";
+import '../../common/Card.scss'
 
 const ProfileExcerpt = ({path, objectId, ...props}) => {
     const purePath = path.replace(/\//g, '').replace(/[0-9]/g, '') // to get only the path name
@@ -11,6 +13,7 @@ const ProfileExcerpt = ({path, objectId, ...props}) => {
         case 'people': return <PersonExcerpt {...props} objectId={objectId}/>
         case 'species': return <SpecieExcerpt {...props} objectId={objectId}/>
         case 'starships': return <StarshipExcerpt {...props} objectId={objectId}/>
+        case 'vehicles': return <VehiclesExcerpt {...props} objectId={objectId}/>
         default: return undefined
     }
 };

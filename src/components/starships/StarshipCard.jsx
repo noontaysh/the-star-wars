@@ -1,11 +1,10 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import './styles/StarshipCard.scss'
 
 const StarshipCard = ({id, ...props}) => {
     return (
-        <NavLink to={`/starships/${id}`} className={'starship'}>
-            <div className={'starship__image'}>
+        <NavLink to={`/starships/${id}`} className={'card'}>
+            <div className={'card__image'}>
                 {/*images were taken from this site https://starwars-visualguide.com/#/species?page=1, cause SWAPI doesn't have its own*/}
                 <img
                     src={`https://starwars-visualguide.com/./assets/img/starships/${id}.jpg`}

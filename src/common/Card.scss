@@ -1,0 +1,17 @@
+@import './StyleVariables';
+
+.card {
+  @extend %card;
+}
+
+.card__image {
+  @extend %card__image;
+}
+
+.excerpt {
+  @extend %profile;
+}
+
+.excerpt__content {
+  @extend %profile__content;
+}

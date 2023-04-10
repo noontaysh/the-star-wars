@@ -1,9 +1,0 @@
-@import '../../../common/StyleVariables';
-
-.starship {
-  @extend %card
-}
-
-.starship__image {
-  @extend %card__image
-}
