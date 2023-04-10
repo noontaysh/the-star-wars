@@ -6,7 +6,7 @@ const initialState = {
     entities: [],
     status: 'idle',
     error: null,
-    currentPage: 1,
+    currentPage: 9,
     totalCount: 0,
     pageSize: 10, // 10 by default
 }

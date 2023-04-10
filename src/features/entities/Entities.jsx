@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {fetchEntities, selectAllEntities} from "./entitiesSlice";
+import {fetchEntities, selectAllEntities, setStatus} from "./entitiesSlice";
 import {pageChanged} from "./entitiesSlice";
 import {getId} from "../../utilities/getImageById";
 import {useLocation} from "react-router-dom";
@@ -12,8 +12,10 @@ import '../../common/Container.scss'
 const Entities = () => {
     const dispatch = useDispatch()
     const {pathname} = useLocation()
+    const [content, setContent] = useState()
 
     const {entities, status, error, currentPage, totalCount, pageSize} = useSelector(selectAllEntities)
+
 
     useEffect(() => {
         const promise = dispatch(fetchEntities({pathname, currentPage}))
@@ -22,23 +24,26 @@ const Entities = () => {
         }
     }, [currentPage, dispatch, pathname])
 
+
+    useEffect(() => {
+        if (status === 'pending') {
+            setContent(<p>"Loading..."</p>)
+        } else if (status === 'success') {
+            setContent(entities !== undefined && entities.map(entityCard => {
+                const id = getId(entityCard.url)
+                return (
+                    <EntityCard key={entityCard.name} {...entityCard} entityId={id} path={pathname}/>
+                )
+            }))
+        } else if (status === 'failed') {
+            setContent(<p>{error}</p>)
+        }
+    }, [status, pathname])
+
     const paginate = (pageNumber) => {
         dispatch(pageChanged(pageNumber))
     };
 
-    let content
-    if (status === 'pending') {
-        content = <p>"Loading..."</p>
-    } else if (status === 'success') {
-        content = entities.map(entityCard => {
-            const id = getId(entityCard.url)
-            return (
-                <EntityCard key={entityCard.name} {...entityCard} entityId={id} path={pathname}/>
-            )
-        })
-    } else if (status === 'failed') {
-        content = <p>{error}</p>
-    }
     return (
         <div className={'entities container'}>
             <h1 className={'entities__title'}>{pathname.replace(/\//g, '')}</h1>
