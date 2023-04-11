@@ -32,7 +32,7 @@ const Entities = () => {
             setContent(entities !== undefined && entities.map(entityCard => {
                 const id = getId(entityCard.url)
                 return (
-                    <EntityCard key={entityCard.name} {...entityCard} entityId={id} path={pathname}/>
+                    <EntityCard key={id} {...entityCard} entityId={id} path={pathname}/>
                 )
             }))
         } else if (status === 'failed') {

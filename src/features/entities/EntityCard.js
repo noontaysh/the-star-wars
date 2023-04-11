@@ -4,6 +4,7 @@ import PersonCard from "../../components/people/PersonCard";
 import SpecieCard from "../../components/species/SpecieCard";
 import StarshipCard from "../../components/starships/StarshipCard";
 import VehiclesCard from "../../components/vehicles/VehiclesCard";
+import FilmCard from "../../components/films/FilmCard";
 
 const EntityCard = ({entityId, path, ...props}) => {
     const purePath = path.replace(/\//g, '') // to get only the path name
@@ -13,6 +14,7 @@ const EntityCard = ({entityId, path, ...props}) => {
         case 'species': return <SpecieCard {...props} id={entityId}/>
         case 'starships': return <StarshipCard {...props} id={entityId} />
         case 'vehicles': return <VehiclesCard {...props} id={entityId} />
+        case 'films': return <FilmCard {...props} id={entityId} />
         default: return undefined
     }
 };
