@@ -13,7 +13,7 @@ function App() {
             <BrowserRouter>
                 <Header/>
                 <Routes>
-                    <Route path={'/'} element={<Root />} />
+                    <Route path={'/the-star-wars'} element={<Root />} />
                     <Route path={'/people'} element={<Entities/>} />
                     <Route path={'/people/:objectId'} element={<Profile />} />
                     <Route path={'/planets'} element={<Entities />} />
