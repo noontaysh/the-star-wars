@@ -7,13 +7,13 @@ const Header = () => {
     return (
         <header className={'container'}>
             <div>
-                <NavLink to={'/people'} className={(navData) => (navData.isActive && 'link_active')}>
+                <NavLink to={'/people'} className={(navData) => (navData.isActive ? 'link_active' : '')}>
                     <p>Characters</p>
                 </NavLink>
                 <NavLink to={'/'}>
                     <img src="https://cdn.cdnlogo.com/logos/s/58/star-wars.png" alt=""/>
                 </NavLink>
-                <NavLink to={'/planets'} className={(navData) => (navData.isActive && 'link_active')}>
+                <NavLink to={'/planets'} className={(navData) => (navData.isActive ? 'link_active' : '')}>
                     <p>Planets</p>
                 </NavLink>
             </div>
