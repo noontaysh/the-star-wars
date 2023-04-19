@@ -5,7 +5,8 @@
 }
 
 .entities__content {
-  @extend %content__placing
+  @extend %content__placing;
+  padding-top: 1rem;
 }
 
 .entities__title {

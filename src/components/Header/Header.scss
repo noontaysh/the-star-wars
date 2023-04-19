@@ -17,6 +17,28 @@ header {
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
     color: white;
+    position: relative;
+
+
+    &:after {
+      content: '';
+      height: 2px;
+
+      position: absolute;
+      bottom: -1.5px;
+      left: 0;
+
+      background-color: aliceblue;
+      width: 0;
+
+      transition: width .2s linear;
+    }
+
+    &:hover {
+      &:after {
+        width: 100%;
+      };
+    }
   }
 
   img {
@@ -29,9 +51,11 @@ header {
 }
 
 .link_active {
-  text-decoration: underline;
-
   transition: all .3s linear;
+
+  p:after {
+    width: 100%;
+  }
 }
 
 

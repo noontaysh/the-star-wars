@@ -30,7 +30,7 @@ function App() {
                         <Route path={'/vehicles/:objectId'} element={<Profile/>}/>
                         <Route path={'/films/'} element={<Entities/>}/>
                         <Route path={'/films/:objectId'} element={<Profile/>}/>
-                        <Route path={'*'} element={<p>You lost your own way my son</p>}/>
+                        <Route path={'*'} element={<p>You lost your own way my son</p>} />
                     </Routes>
                 </div>
             </BrowserRouter>

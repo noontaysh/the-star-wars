@@ -16,10 +16,10 @@ const PersonCard = ({id, ...props}) => {
                 </div>
                 <div className="character__content">
                     <h3>{props.name}</h3>
-                    <div className={'character__paragraphs'}>
-                        <p>{props.birth_year}</p>
-                        <p>{props.mass}{props.mass !== 'unknown' ? 'kg' : ''}</p>
-                    </div>
+                    {/*<div className={'character__paragraphs'}>*/}
+                    {/*    <p>{props.birth_year}</p>*/}
+                    {/*    <p>{props.mass}{props.mass !== 'unknown' ? 'kg' : ''}</p>*/}
+                    {/*</div>*/}
                 </div>
             </section>
         </NavLink>
