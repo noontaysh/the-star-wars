@@ -1,14 +1,17 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useLocation, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {loadProfile, selectEntity} from "./profileSlice";
 import ProfileExcerpt from "./ProfileExcerpt";
 import '../../common/Container.scss'
+import Preloader from "../../components/preloader/Preloader";
+import './Profile.scss'
 
 const Profile = (props) => {
     const {objectId} = useParams()
     const {pathname} = useLocation()
     const dispatch = useDispatch()
+    const [content, setContent] = useState()
 
     const {entity, status, error} = useSelector(selectEntity)
 
@@ -16,17 +19,18 @@ const Profile = (props) => {
         dispatch(loadProfile(pathname))
     }, [objectId, dispatch, pathname])
 
-    let content
-    if (status === 'pending') {
-        content = <p>Pending...</p>
-    } else if (status === 'success') {
-        content = <ProfileExcerpt path={pathname} objectId={objectId} {...entity} />
-    } else if (status === 'failed') {
-        content = <p>{error}</p>
-    }
+    useEffect(() => {
+        if (status === 'pending') {
+            setContent(<Preloader />)
+        } else if (status === 'success') {
+            setContent(<ProfileExcerpt path={pathname} objectId={objectId} {...entity} />)
+        } else if (status === 'failed') {
+            setContent(<p>{error}</p>)
+        }
+    }, [status, pathname])
 
     return (
-        <div className={'container'}>
+        <div className={'profile container'}>
             {content}
         </div>
     );

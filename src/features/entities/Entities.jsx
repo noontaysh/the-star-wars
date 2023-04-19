@@ -8,6 +8,7 @@ import Paginator from "../../components/Paginator/Paginator";
 import EntityCard from "./EntityCard";
 import './Entities.scss'
 import '../../common/Container.scss'
+import Preloader from "../../components/preloader/Preloader";
 
 const Entities = () => {
     const dispatch = useDispatch()
@@ -27,7 +28,7 @@ const Entities = () => {
 
     useEffect(() => {
         if (status === 'pending') {
-            setContent(<p>"Loading..."</p>)
+            setContent(<Preloader />)
         } else if (status === 'success') {
             setContent(entities !== undefined && entities.map(entityCard => {
                 const id = getId(entityCard.url)
