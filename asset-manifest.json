@@ -1,19 +1,15 @@
 {
   "files": {
-    "main.css": "/the-star-wars/static/css/main.68bfadf3.css",
-    "main.js": "/the-star-wars/static/js/main.13623d8c.js",
-    "static/media/planets.webp": "/the-star-wars/static/media/planets.1fb08e9b9c9f17b23559.webp",
-    "static/media/species.jpeg": "/the-star-wars/static/media/species.c18b034a50325e26fe15.jpeg",
-    "static/media/characters.jpg": "/the-star-wars/static/media/characters.20e9a2f06bf8bbf945d2.jpg",
-    "static/media/ships.jpg": "/the-star-wars/static/media/ships.ae056f89d5f3943e7ec4.jpg",
-    "static/media/films.webp": "/the-star-wars/static/media/films.2838580034486445702d.webp",
-    "static/media/vehicles.webp": "/the-star-wars/static/media/vehicles.11428625aa5223622dca.webp",
+    "main.css": "/the-star-wars/static/css/main.0026c8df.css",
+    "main.js": "/the-star-wars/static/js/main.a1014275.js",
+    "static/media/elipse.gif": "/the-star-wars/static/media/elipse.e8731567ccbbb43ea51b.gif",
+    "static/media/star-wars.png": "/the-star-wars/static/media/star-wars.4a8d3cc89ca2d3045e98.png",
     "index.html": "/the-star-wars/index.html",
-    "main.68bfadf3.css.map": "/the-star-wars/static/css/main.68bfadf3.css.map",
-    "main.13623d8c.js.map": "/the-star-wars/static/js/main.13623d8c.js.map"
+    "main.0026c8df.css.map": "/the-star-wars/static/css/main.0026c8df.css.map",
+    "main.a1014275.js.map": "/the-star-wars/static/js/main.a1014275.js.map"
   },
   "entrypoints": [
-    "static/css/main.68bfadf3.css",
-    "static/js/main.13623d8c.js"
+    "static/css/main.0026c8df.css",
+    "static/js/main.a1014275.js"
   ]
 }
