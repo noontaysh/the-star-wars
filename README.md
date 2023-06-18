@@ -4,4 +4,4 @@
 
 ## Screenshot
 
-[Imgur](https://i.imgur.com/yJ4XJTP.png?raw=true)
+![Imgur](https://i.imgur.com/yJ4XJTP.png?raw=true)
