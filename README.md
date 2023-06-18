@@ -1,4 +1,4 @@
-# Star Wars - informational website
+# Star Wars - informational website ![Static Badge](https://img.shields.io/badge/:badgeContent)
 
 > Informational website about the Star Wars universe built with React and Redux.
 
@@ -20,9 +20,9 @@ App was built using the following technologies:
 
 Use `git clone https://github.com/noontaysh/the-star-wars.git` or download the code using the green code button.
 
-Then run the command `npm install` & `npm i` in the project directory.
+Then run the command `npm install` or `npm i` using a terminal in the project directory.
 
-And finally run the application using `npm start`.
+And finally, run the application using `npm start`.
 
 ## Idea
 
@@ -30,4 +30,4 @@ _This project marked the beginning of my journey with React, where I explored mo
 
 ## Github Pages
 
-Here you'll find `gh-pages` too! Simply click on this [Star Wars](https://noontaysh.github.io/the-star-wars/) text to explore the application.
+Here you'll find `gh-pages` too! Simply click on this [Star Wars](https://noontaysh.github.io/the-star-wars/) to explore the application.
