@@ -4,4 +4,4 @@
 
 ## Screenshot
 
-![Screenshot](blob:https://web.telegram.org/1bcbf0b0-9221-449d-996c-ce7d5b95ce11)
+![Screenshot]([[blob:https://web.telegram.org/1bcbf0b0-9221-449d-996c-ce7d5b95ce11](https://imgur.com/yJ4XJTP)](https://imgur.com/yJ4XJTP)https://imgur.com/yJ4XJTP)
