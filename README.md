@@ -1,4 +1,4 @@
-# Star Wars - informational website ![Static Badge](https://img.shields.io/badge/:badgeContent)
+# Star Wars - informational website
 
 > Informational website about the Star Wars universe built with React and Redux.
 
