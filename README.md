@@ -18,7 +18,7 @@ App was built using the following technologies:
 
 ## Download Code
 
-Use `git clone https://github.com/noontaysh/the-star-wars.git` or download the code using the green <code> button.
+Use `git clone https://github.com/noontaysh/the-star-wars.git` or download the code using the green code button.
 
 Then run the command `npm install` & `npm i` in the project directory.
 
