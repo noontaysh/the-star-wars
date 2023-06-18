@@ -16,10 +16,18 @@ App was built using the following technologies:
 * SWAPI
 * ECMAScript 2015/ES6
 
-## Download Code
+## Installing the application
 
 Use `git clone https://github.com/noontaysh/the-star-wars.git` or download the code using the green code button.
 
 Then run the command `npm install` & `npm i` in the project directory.
 
 And finally run the application using `npm start`.
+
+## Idea
+
+_This project marked the beginning of my journey with React, where I explored modern technologies like toolkit, among others. Additionally, there's an API integrated into the project (not developed by me). Through this endeavor, I've refined my skills within a new ecosystem and I'm excited to showcase the fruits of my labor._ 
+
+## Github Pages
+
+Here you'll find `gh-pages` too! Simply click on this [Star Wars](https://noontaysh.github.io/the-star-wars/) text to explore the application.
